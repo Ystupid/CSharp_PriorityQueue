@@ -50,7 +50,7 @@ namespace System.Collections.Generic
             index = m_Size;
             while (index > 0)
             {
-                parent = ((int)Math.Ceiling(index / 2f) - 1);
+                parent = (index + 1) / 2 - 1;
 
                 if (m_Comparer.Compare(m_Array[parent], element) > 0)
                     m_Array[index] = m_Array[parent];
