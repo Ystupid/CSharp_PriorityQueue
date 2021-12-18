@@ -164,6 +164,17 @@ namespace System.Collections.Generic
             m_Tail = m_Size == capacity ? 0 : m_Size;
             ++m_Version;
         }
+        
+        public void Clear()
+        {
+            if (m_Size > 0)
+            {
+                Array.Clear(m_Array, m_Head, m_Size);
+                m_Tail = 0;
+                m_Size = 0;
+            }
+            ++m_Version;
+        }
 
         public IEnumerator<T> GetEnumerator() => new Enumerator(this);
         IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
